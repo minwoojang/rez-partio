@@ -1,6 +1,6 @@
 name = "partio"
 
-version = "1.10.1"
+version = "1.12.0"
 
 authors = [
     "Walt Disney Animation Studios"
@@ -13,14 +13,14 @@ description = \
     """
 
 requires = [
-    "cmake-3+",
-    "gcc-6+",
-    "python-2.7+<3",
-    "zlib-1.2+"
+    "cmake",
+    "gcc-6",
+    "python",
+    "zlib"
 ]
 
 variants = [
-    ["platform-linux"]
+    ["platform-linux","arch-x86_64"]
 ]
 
 tools = [
@@ -43,7 +43,7 @@ uuid = "partio-{version}".format(version=str(version))
 def commands():
     env.PATH.prepend("{root}/bin")
     env.LD_LIBRARY_PATH.prepend("{root}/lib64")
-    env.PYTHONPATH.prepend("{root}/lib64/python" + str(env.REZ_PYTHON_MAJOR_VERSION) + "." + str(env.REZ_PYTHON_MINOR_VERSION) + "/site-packages")
+    env.PYTHONPATH.prepend("{root}/lib64/python3.9/site-packages")
 
     # Helper environment variables.
     env.PARTIO_BINARY_PATH.set("{root}/bin")
